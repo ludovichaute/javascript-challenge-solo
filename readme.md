@@ -13,4 +13,4 @@ Et c'est ce que tu vas faire, en ajoutant des **graphiques interactifs** grâce 
  
 ### Liens des consignes:
 
-[](https://github.com/becodeorg/lovelace-2/tree/master/Projects/javascript-challenge-solo)
+[https://github.com/becodeorg/lovelace-2/tree/master/Projects/javascript-challenge-solo](https://github.com/becodeorg/lovelace-2/tree/master/Projects/javascript-challenge-solo)
