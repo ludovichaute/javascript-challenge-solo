@@ -232,10 +232,6 @@ $('#firstHeading').after('<div id="chartJ"></div>');
 function makeRequest(url) {
     var httpRequest = false;
     httpRequest = new XMLHttpRequest();
-    if (!httpRequest) {
-        alert('Abandon :( Impossible de créer une instance XMLHTTP');
-        return false;
-    }
     httpRequest.onreadystatechange = function() { alertContents(httpRequest); };
     httpRequest.open('GET', url, true);
     httpRequest.send(null);
@@ -259,7 +255,7 @@ function alertContents(httpRequest) {
             dataRecup.push({"Time":index, "Taux":taux});
         }
             console.log(dataRecup); 
-            var svg = dimple.newSvg("#chartJ", 900, 600);
+            var svg = dimple.newSvg("#chartJ", 800, 600);
             var myChartJ = new dimple.chart(svg, dataRecup);
             myChartJ.defaultColors = [new dimple.color("#FF0000", "Blue")]; 
             myChartJ.addCategoryAxis("x", "Time");
