@@ -217,10 +217,11 @@ $('#table2').before('<div id="chart2"></div>');
 
 var svg = dimple.newSvg("#chart2", 900, 600);
 var myChart2 = new dimple.chart(svg, data2);
-myChart2.defaultColors = tabColor;
-myChart2.addCategoryAxis("x", "années");
+myChart2.defaultColors =  [new dimple.color("Blue"),new dimple.color("red")];
+
+myChart2.addCategoryAxis("x", ["pays2", "années"]);
 myChart2.addMeasureAxis("y", "nombres");
-myChart2.addSeries("pays2", dimple.plot.line);
+myChart2.addSeries("années", dimple.plot.bar);
 myChart2.addLegend(-100, 30, 100, 600);
 myChart2.draw();
 
@@ -228,41 +229,51 @@ myChart2.draw();
 
 $('#firstHeading').after('<div id="chartJ"></div>');
 
-
-
-let req = new XMLHttpRequest();
-req.open("GET", "https://inside.becode.org/api/v1/data/random.json?min=-50&max=50", false);
-req.send();
-let respons = req.responseText; 
-let dataJ = JSON.parse(respons);      
-console.log(respons);
-
-// setInterval(function (){ 
-//     recupAjax();
-// }, 1000);
-
-var dataRecup = [];
-
-
-for (let j = 0; j < dataJ.length; j++) {
-    let index = dataJ[j][0];
-
-    console.log(index); 
-    for (let k = 0; k < dataJ.length; k++) {
-        var taux = dataJ[j][1];
-        
+function makeRequest(url) {
+    var httpRequest = false;
+    httpRequest = new XMLHttpRequest();
+    if (!httpRequest) {
+        alert('Abandon :( Impossible de créer une instance XMLHTTP');
+        return false;
     }
-    dataRecup.push({"Time":index, "Taux":taux});
-    
+    httpRequest.onreadystatechange = function() { alertContents(httpRequest); };
+    httpRequest.open('GET', url, true);
+    httpRequest.send(null);
 }
-console.log(dataRecup); 
 
+function alertContents(httpRequest) {
 
-var svg = dimple.newSvg("#chartJ", 900, 600);
-var myChartJ = new dimple.chart(svg, dataRecup);
-myChartJ.defaultColors = [new dimple.color("#FF0000", "Blue")]; 
-myChartJ.addCategoryAxis("x", "Time");
-myChartJ.addMeasureAxis("y", "Taux");
-myChartJ.addSeries("", dimple.plot.line);
-myChartJ.draw();
+    if (httpRequest.readyState == XMLHttpRequest.DONE) {
+        var dataRecup = []; 
+        if (httpRequest.status == 200) {
+            console.log(httpRequest.responseText);
+            var dataJ = JSON.parse(httpRequest.responseText);
+            console.log(dataJ);
+            
+            for (let j = 0; j < dataJ.length; j++) {
+                let index = dataJ[j][0];
+                console.log(index); 
+            for (let k = 0; k < dataJ.length; k++) {
+                var taux = dataJ[j][1];
+            }
+            dataRecup.push({"Time":index, "Taux":taux});
+        }
+            console.log(dataRecup); 
+            var svg = dimple.newSvg("#chartJ", 900, 600);
+            var myChartJ = new dimple.chart(svg, dataRecup);
+            myChartJ.defaultColors = [new dimple.color("#FF0000", "Blue")]; 
+            myChartJ.addCategoryAxis("x", "Time");
+            myChartJ.addMeasureAxis("y", "Taux");
+            myChartJ.addSeries("", dimple.plot.line);   
+            myChartJ.draw();
+        } else {
+            alert('Un problème est survenu avec la requête.');
+        }
+    }
+}
 
+setTimeout(function (){ 
+    makeRequest('https://inside.becode.org/api/v1/data/random.json?min=-50&max=50');
+}, 1000);
+
+// file:///home/user/Desktop/Exercice/javascript-challenge-solo/index.html
