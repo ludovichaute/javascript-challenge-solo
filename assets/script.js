@@ -225,35 +225,44 @@ myChart2.addLegend(-100, 30, 100, 600);
 myChart2.draw();
 
 /*** Table 3 ***/
-$('#firstHeading').before('<div id="chartJ"></div>');
 
-var req = new XMLHttpRequest();
+$('#firstHeading').after('<div id="chartJ"></div>');
+
+
+
+let req = new XMLHttpRequest();
 req.open("GET", "https://inside.becode.org/api/v1/data/random.json?min=-50&max=50", false);
 req.send();
-var respons = req.responseText; 
-var dataJ = JSON.parse(respons);      
-console.log(req.responseText);
+let respons = req.responseText; 
+let dataJ = JSON.parse(respons);      
+console.log(respons);
 
+// setInterval(function (){ 
+//     recupAjax();
+// }, 1000);
+
+var dataRecup = [];
+
+
+for (let j = 0; j < dataJ.length; j++) {
+    let index = dataJ[j][0];
+
+    console.log(index); 
+    for (let k = 0; k < dataJ.length; k++) {
+        var taux = dataJ[j][1];
+        
+    }
+    dataRecup.push({"Time":index, "Taux":taux});
+    
+}
+console.log(dataRecup); 
 
 
 var svg = dimple.newSvg("#chartJ", 900, 600);
-var myData =  [
-    { "Time":1, "Taux":9 },
-    { "Time":2, "Taux":10 },
-    { "Time":3, "Taux":5 },
-    { "Time":4, "Taux":9 },
-    { "Time":5, "Taux":10 },
-    { "Time":6, "Taux":5 },
-    { "Time":7, "Taux":9 },
-    { "Time":8, "Taux":10 },
-    { "Time":9, "Taux":5 },
-    { "Time":10, "Taux":5 },
-];
-var myChartJ = new dimple.chart(svg, myData);
-myChartJ.defaultColors = [
-	new dimple.color("#FF0000", "Blue"), 
-]; 
+var myChartJ = new dimple.chart(svg, dataRecup);
+myChartJ.defaultColors = [new dimple.color("#FF0000", "Blue")]; 
 myChartJ.addCategoryAxis("x", "Time");
 myChartJ.addMeasureAxis("y", "Taux");
-myChartJ.addSeries("Criminal", dimple.plot.line);
+myChartJ.addSeries("", dimple.plot.line);
 myChartJ.draw();
+
