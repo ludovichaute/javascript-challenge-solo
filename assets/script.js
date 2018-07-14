@@ -227,7 +227,7 @@ myChart2.draw();
 
 /*** Table 3 ***/
 
-$('#firstHeading').after('<div id="chartJ"></div>');
+
 
 function makeRequest(url) {
     var httpRequest = false;
@@ -263,11 +263,19 @@ function alertContents(httpRequest) {
             myChartJ.addSeries("", dimple.plot.line);   
             myChartJ.draw();
         } else {
-            alert('Un problème est survenu avec la requête.');
+            console.log('Un problème est survenu avec la requête.');
         }
     }
 }
 
-makeRequest('https://inside.becode.org/api/v1/data/random.json?min=-50&max=50');
+ 
+setInterval(function(){ 
+    $('#firstHeading').after('<div id="chartJ"></div>');
+    makeRequest('https://inside.becode.org/api/v1/data/random.json?min=-50&max=50'); 
+    $('#firstHeading').remove('<div id="chartJ"></div>');
+    }, 1000);
+    
+
+    
 
 // file:///home/user/Desktop/Exercice/javascript-challenge-solo/index.html
