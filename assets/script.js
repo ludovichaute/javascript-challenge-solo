@@ -268,6 +268,6 @@ function alertContents(httpRequest) {
     }
 }
 
-setInterval(makeRequest('https://inside.becode.org/api/v1/data/random.json?min=-50&max=50'), 2000);
+makeRequest('https://inside.becode.org/api/v1/data/random.json?min=-50&max=50');
 
 // file:///home/user/Desktop/Exercice/javascript-challenge-solo/index.html
