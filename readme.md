@@ -32,3 +32,11 @@ Ajouter des graphiques:
 - Utiliser une nouvelle librairie.(Jquery).
 - Comprendre comment fonctionne l'Ajax.
 - Debugger.
+
+### Liens du site:
+
+[https://ludovichaute.github.io/javascript-challenge-solo/](https://ludovichaute.github.io/javascript-challenge-solo/)
+
+###
+
+![https://i.stack.imgur.com/2j2gh.gif](chart js D3)
