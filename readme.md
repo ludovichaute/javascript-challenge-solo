@@ -39,4 +39,4 @@ Ajouter des graphiques:
 
 ###
 
-![https://i.stack.imgur.com/2j2gh.gif](chart js D3)
+!(chart js D3)[https://i.stack.imgur.com/2j2gh.gif]
