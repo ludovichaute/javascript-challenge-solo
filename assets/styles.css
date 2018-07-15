@@ -1,3 +1,7 @@
+#chartJ{
+  height: 600px;
+}
+
 .bb svg {
   font: 10px sans-serif;
   -webkit-tap-highlight-color: transparent; }

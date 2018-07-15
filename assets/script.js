@@ -197,7 +197,7 @@ for (let i = 2; i < years2.length; i++) {
     
     let content2 = years2[i].innerHTML;
     tableYears2.push(content2);
-    console.log(content2);
+
 }
 let rows2 = table2.getElementsByTagName('tr');
 for (let i = 0; i < rows2.length; i++) {
@@ -227,8 +227,6 @@ myChart2.draw();
 
 /*** Table 3 ***/
 
-
-
 function makeRequest(url) {
     var httpRequest = false;
     httpRequest = new XMLHttpRequest();
@@ -238,23 +236,19 @@ function makeRequest(url) {
 }
 
 function alertContents(httpRequest) {
-
     if (httpRequest.readyState == XMLHttpRequest.DONE) {
         var dataRecup = []; 
         if (httpRequest.status == 200) {
-            console.log(httpRequest.responseText);
+
             var dataJ = JSON.parse(httpRequest.responseText);
-            console.log(dataJ);
             
             for (let j = 0; j < dataJ.length; j++) {
                 let index = dataJ[j][0];
-                console.log(index); 
             for (let k = 0; k < dataJ.length; k++) {
                 var taux = dataJ[j][1];
             }
             dataRecup.push({"Time":index, "Taux":taux});
         }
-            console.log(dataRecup); 
             var svg = dimple.newSvg("#chartJ", 800, 600);
             var myChartJ = new dimple.chart(svg, dataRecup);
             myChartJ.defaultColors = [new dimple.color("#FF0000", "Blue")]; 
@@ -270,12 +264,9 @@ function alertContents(httpRequest) {
 
  
 setInterval(function(){ 
-    $('#firstHeading').after('<div id="chartJ"></div>');
+
     makeRequest('https://inside.becode.org/api/v1/data/random.json?min=-50&max=50'); 
-    $('#firstHeading').remove('<div id="chartJ"></div>');
+    $('#chartJ').remove();
+    $('#firstHeading').after('<div id="chartJ"></div>');
     }, 1000);
-    
 
-    
-
-// file:///home/user/Desktop/Exercice/javascript-challenge-solo/index.html

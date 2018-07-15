@@ -25,9 +25,11 @@ Ajouter des graphiques:
 
 - L'utilisation de Dimple (d3) pas évident.
 
-- Problème avec le 3ème graphiques la mise a jour ce fait correctement mais le graphique s'additionne en dessous.
+- Problème avec le 3ème graphiques la mise a jour ce fait correctement mais le graphique s'additionne en dessous. (j'ai reussi enfin).
 
-### ce que j'ai appris:
+![winner](https://vignette.wikia.nocookie.net/glee/images/f/fb/Winner.gif/revision/latest?cb=20130216051237)
+
+### Ce que j'ai appris:
 
 - Utiliser une nouvelle librairie.(Jquery).
 - Comprendre comment fonctionne l'Ajax.
