@@ -38,4 +38,4 @@ Ajouter des graphiques:
 [https://ludovichaute.github.io/javascript-challenge-solo/](https://ludovichaute.github.io/javascript-challenge-solo/)
 
 
-![https://i.stack.imgur.com/2j2gh.gif]()
+![Chart js d3](https://i.stack.imgur.com/2j2gh.gif)
