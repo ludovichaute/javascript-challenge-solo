@@ -29,8 +29,6 @@ Ajouter des graphiques:
 
 ![winner](https://vignette.wikia.nocookie.net/glee/images/f/fb/Winner.gif/revision/latest?cb=20130216051237)
 
-PS: uniquement sur Firefox :-( 
-
 ### Ce que j'ai appris:
 
 - Utiliser une nouvelle librairie.(Jquery).

@@ -170,7 +170,6 @@ for (var value in colorList) {
     tabColor.push(new dimple.color(val));
 }
 
-console.log(tabColor);
 
 $('#table1').before('<div id="chart1"></div>');
 
